@@ -132,6 +132,38 @@ input[type=submit] { align-self: start; min-width: 10em; }
 
 }
 
+
+
+.gui {
+    color:var(--main-dark);
+    text-align:center;
+    border-radius: 5px;
+}
+
+.configButton {
+    background-color:var(--secondary-light);
+    color:white;
+    border-radius: 1em;
+    transition-duration: 0.3s;
+    box-shadow: none;
+}
+
+.configButton:hover {
+    background-color: var(--secondary-dark);
+    cursor: pointer;
+    box-shadow: inherit;
+}
+
+.textInput {
+    background: var(--main-light);
+    border: 0;
+    border-radius: 5px;
+}
+
+
+
+
+
 .serialSettings {
     color:var(--main-dark);
     text-align:center;

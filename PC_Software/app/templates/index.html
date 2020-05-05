@@ -16,6 +16,23 @@
     <button id="refreshTerminalBtn">Refresh</button>
 </div>
 <hr>
+<div class="gui">
+    <h2>Flight Computer Commands</h2>
+    <h4>Set data rate: 0 to 100 (Hz)</h4>
+    <input type='text' class='textInput' id='dataRate' name='dataRate'> 
+    <button class='configButton' id='setDataRate'>Set Data Rate</button>
+    <br>
+    <h4>Set accelerometer bandwidth (units?)</h4>
+    <input type='radio' name='accBandwidth' id='accbw1'>
+    <label for='accb1'>0</label>
+    <input type='radio' name='accBandwidth' id='accbw2'>
+    <label for='accb2'>2</label>
+    <input type='radio' name='accBandwidth' id='accbw3'>
+    <label for='accb3'>4</label>
+    <button class='configButton' id='setAccBandwidth'>Set Accelerometer Bandwidth</button>
+
+</div>
+<hr>
 
     <div class="serialSettings" >
     <h2>Connect To The Flight Computer</h2>
