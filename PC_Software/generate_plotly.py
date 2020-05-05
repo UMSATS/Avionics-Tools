@@ -16,8 +16,8 @@ import plotly.offline as ply
 
 import csv
 import numpy as np
-from urllib3.packages.rfc3986.parseresult import authority_from
-
+# from urllib3.packages.rfc3986.parseresult import authority_from
+# above import has broken dependencies. Removed to allow program to run. Disables plot functionality.
 
 def plot_data():
     DATA_FILE_PATH = 'flightComputer.csv'
