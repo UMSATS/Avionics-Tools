@@ -158,7 +158,7 @@ input[type=submit] { align-self: start; min-width: 10em; }
     border-radius: 1em;
     transition-duration: 0.3s;
     box-shadow: none;
-    margin: 0 3px;
+    margin: 0 6px;
     border: none;
 }
 
