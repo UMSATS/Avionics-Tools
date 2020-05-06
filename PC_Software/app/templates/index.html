@@ -18,19 +18,48 @@
 <hr>
 <div class="gui">
     <h2>Flight Computer Commands</h2>
-    <h4>Set data rate: 0 to 100 (Hz)</h4>
-    <input type='text' class='textInput' id='dataRate' name='dataRate'> 
-    <button class='configButton' id='setDataRate'>Set Data Rate</button>
-    <br>
-    <h4>Set accelerometer bandwidth (units?)</h4>
-    <input type='radio' name='accBandwidth' id='accbw1'>
-    <label for='accb1'>0</label>
-    <input type='radio' name='accBandwidth' id='accbw2'>
-    <label for='accb2'>2</label>
-    <input type='radio' name='accBandwidth' id='accbw3'>
-    <label for='accb3'>4</label>
-    <button class='configButton' id='setAccBandwidth'>Set Accelerometer Bandwidth</button>
+    <div class="row" id="dataRateRow">
+        <h4>Set data rate: 0 to 100 (Hz)</h4>
+        <input type='text' class='textInput' id='dataRate' name='dataRate'> 
+        <button class='configButton' id='setDataRate'>Set Data Rate</button>
+    </div>
 
+    <h4 style="text-align:left; margin:2em 5vw 0;">Accelerometer Settings</h4>
+    <div class="row" id="accelerometerRow">
+        <div class="col1">
+            <p>Set accelerometer range</p>
+            <input type="radio" name="accRange">
+            <label for="accr1">3</label>
+            <input type="radio" name="accRange">
+            <label for="accr2">6</label>
+            <input type="radio" name="accRange">
+            <label for="accr3">12</label>
+            <input type="radio" name="accRange">
+            <label for="accr4">24</label><button class="configButton" id='setAccRange'>Set Range</button>
+        </div>
+        <div class="col2">
+            <p>Set accelerometer bandwidth</p>
+            <input type='radio' name='accBandwidth' id='accbw1'>
+            <label for='accb1'>0</label>
+            <input type='radio' name='accBandwidth' id='accbw2'>
+            <label for='accb2'>2</label>
+            <input type='radio' name='accBandwidth' id='accbw3'>
+            <label for='accb3'>4</label><button class='configButton' id='setAccBandwidth'>Set Bandwidth</button>
+        </div>
+        <div class="col3">
+            <p>Set accelerometer ODR</p>
+            <select id="accODR">
+                <option value="12">12</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="400">400</option>
+                <option value="800">800</option>
+                <option value="1600">1600</option>
+            </select>
+        </div>
+    </div>
 </div>
 <hr>
 

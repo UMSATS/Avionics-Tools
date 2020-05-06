@@ -140,12 +140,26 @@ input[type=submit] { align-self: start; min-width: 10em; }
     border-radius: 5px;
 }
 
+.row {
+    width:100%;
+    margin: 0 auto;
+}
+
+.col1, .col2, .col3 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 1%;
+    width: 30%;
+}
+
 .configButton {
     background-color:var(--secondary-light);
     color:white;
     border-radius: 1em;
     transition-duration: 0.3s;
     box-shadow: none;
+    margin: 0 3px;
+    border: none;
 }
 
 .configButton:hover {
@@ -154,10 +168,16 @@ input[type=submit] { align-self: start; min-width: 10em; }
     box-shadow: inherit;
 }
 
+.configButton:focus{
+    outline:none;
+    box-shadow: 0 0 0 2pt cornflowerblue;
+}
+
 .textInput {
     background: var(--main-light);
     border: 0;
     border-radius: 5px;
+    padding: 1px 3px;
 }
 
 
