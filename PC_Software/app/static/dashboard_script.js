@@ -4,8 +4,10 @@ document.getElementById("refreshCOM").addEventListener("click",getComPorts);
 document.getElementById("ConnectSerialButton").addEventListener("click",connectFunc);
 document.getElementById("refreshTerminalBtn").addEventListener("click",refreshTerminal);
 
+document.getElementById("submitButton").addEventListener("click", guiSubmit);
 
 var comPortGlobal;
+var commands = [];
 
 getComPorts();
 
@@ -201,6 +203,72 @@ console.log("key press");
 
     }
 }
+
+
+
+//adapted from terminalSubmit to allow submitting to flight computer from GUI
+function guiSubmit(){
+    console.log("Submit GUI string");
+    var xhttp = new XMLHttpRequest();
+    var dsp_txt = document.getElementById("term_dsp");
+
+    //send all accumulated commands to computer
+    for (i=0; i < commands.length; i++){
+        command = commands[i];
+        //command += "\r" / shouldnt need this if built with it included
+
+        // verbatim from terminalSubmit
+        $.ajax({
+            type: 'post',
+            url: '/terminal_out',
+            data: JSON.stringify ({'text':command}),
+            success: function (data) {
+
+              //dsp_txt.value += data;
+
+            }
+          });
+          console.log(command + " sent to computer");
+        }
+
+    commands = [];
+    //send "save" command?
+
+}
+
+
+
+// add commands to submit from GUI
+function addCommand(name){
+
+    //assuming radio buttons:
+    var options = document.getElementsByName(name);
+    var selected;
+
+    //get value of selected radio button
+    for (var i=0; i< options.length; i++){
+        if(options[i].checked){
+            selected = options[i].value;
+        }
+    }
+
+    var newCommand = convert(name, selected);
+
+    console.log("add Command " + newCommand);
+    commands.push(newCommand);
+
+}
+
+
+//converts a string from the GUI version to the flight computer version
+function convert(toConvert, parameter){
+
+    //NOT COMPLETED
+    var toRet = toConvert + " " + parameter;
+    return toRet;
+}
+
+
 
 function post(path, params, method='post') {
 

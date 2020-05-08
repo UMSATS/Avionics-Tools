@@ -16,6 +16,8 @@
     <button id="refreshTerminalBtn">Refresh</button>
 </div>
 <hr>
+
+
 <div class="gui">
     <h2>Flight Computer Commands</h2>
     <div class="row" id="dataRateRow">
@@ -28,14 +30,15 @@
     <div class="row" id="accelerometerRow">
         <div class="col1">
             <p>Set accelerometer range</p>
-            <input type="radio" name="accRange">
+            <input type="radio" name="accRange" value="3">
             <label for="accr1">3</label>
-            <input type="radio" name="accRange">
+            <input type="radio" name="accRange" value="6">
             <label for="accr2">6</label>
-            <input type="radio" name="accRange">
+            <input type="radio" name="accRange" value="12">
             <label for="accr3">12</label>
-            <input type="radio" name="accRange">
-            <label for="accr4">24</label><button class="configButton" id='setAccRange'>Set Range</button>
+            <input type="radio" name="accRange" value="24">
+            <label for="accr4">24</label>
+            <button class="configButton" id='setAccRange' onclick="addCommand('accRange')">Set Range</button>
         </div>
         <div class="col2">
             <p>Set accelerometer bandwidth</p>
@@ -44,7 +47,8 @@
             <input type='radio' name='accBandwidth' id='accbw2'>
             <label for='accb2'>2</label>
             <input type='radio' name='accBandwidth' id='accbw3'>
-            <label for='accb3'>4</label><button class='configButton' id='setAccBandwidth'>Set Bandwidth</button>
+            <label for='accb3'>4</label>
+            <button class='configButton' id='setAccBandwidth'>Set Bandwidth</button>
         </div>
         <div class="col3">
             <p>Set accelerometer ODR</p>
@@ -60,8 +64,13 @@
             </select>
         </div>
     </div>
+
+    <div class="row" style="text-align:right;">
+        <button class='configButton' id='submitButton'>Save Changes</button>
+    </div>
 </div>
 <hr>
+
 
     <div class="serialSettings" >
     <h2>Connect To The Flight Computer</h2>
