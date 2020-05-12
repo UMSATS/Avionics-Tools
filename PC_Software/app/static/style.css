@@ -177,6 +177,24 @@ input[type=submit] { align-self: start; min-width: 10em; }
     margin: 2em 5vw 0;
 }
 
+
+.confirmButton {
+    background-color: transparent;
+    color: var(--main-dark);
+    border-radius: 5px;
+    transition-duration: 0.4s;
+    box-shadow: none;
+    padding: 16px;
+    margin: 0 6px;
+    border: 2px solid var(--secondary-light);
+}
+
+.confirmButton:hover {
+    background-color: var(--secondary-light);
+    color: white;
+}
+
+
 .textInput {
     background: var(--main-light);
     border: 0;

@@ -7,9 +7,31 @@ document.getElementById("refreshTerminalBtn").addEventListener("click",refreshTe
 document.getElementById("submitButton").addEventListener("click", guiSubmit);
 
 var comPortGlobal;
-var commands = [];
+var commands = []; // holds list of strings to pass as commands
+var parsed = [];   // holds parsed command tuples from commands tranlsator file
 
 getComPorts();
+
+
+// parse translator file for commands on load
+// add to arrays for quicker access
+$.get('static/commandsTranslator.txt', function(file){
+
+    var lines = file.split('\n');
+    var reader = new FileReader();
+
+    for(var line = 0; line < lines.length; line++){
+        strings = lines[line].split(">>");
+        //omit lines that start with '#'
+        if ((strings[0].charAt(0) != '#') && (strings.length >=2)) {
+            // add trimmed strings as a "tuple" to the master list
+            newPair = [strings[0].trim(), strings[1].trim()];
+            parsed.push(newPair);
+            console.log(newPair);
+        }
+    }
+}, 'text');
+
 
 
 function on_refresh(){
@@ -236,37 +258,74 @@ function guiSubmit(){
 
 }
 
-
-
-// add commands to submit from GUI
-function addCommand(name){
-
-    //assuming radio buttons:
-    var options = document.getElementsByName(name);
+// helper function. Finds selected value of a group of radio buttons, 
+// and returns that value
+function getRadioVal(options){
     var selected;
-
     //get value of selected radio button
     for (var i=0; i< options.length; i++){
         if(options[i].checked){
             selected = options[i].value;
         }
     }
-
-    var newCommand = convert(name, selected);
-
-    console.log("add Command " + newCommand);
-    commands.push(newCommand);
-
+    if (selected == null){
+        console.log("ERROR: Nothing selected for given radio buttons!");
+    }
+    return selected;
 }
 
 
-//converts a string from the GUI version to the flight computer version
+// add commands for given group name from GUI
+function addCommands(name){
+
+    // hard-coded unfortuantely. ensure each block checks all 
+    // appropriate settings if making changes
+    switch(name){
+        case "Accelerometer":
+            //accelerometer range
+            var rangeRadio = document.getElementsByName("accRange");
+            var selectedRange = getRadioVal(rangeRadio);
+            newCommand = convert("ACCELEROMETER_RANGE", selectedRange);
+            commands.push(newCommand);
+            console.log("add Command " + newCommand);
+            //Accelerometer Bandwidth
+            var bandRadio = document.getElementsByName("accBandwidth");
+            var selectedBand = getRadioVal(bandRadio);
+            newCommand = convert("ACCELEROMETER_BANDWIDTH", selectedRange);
+            commands.push(newCommand);
+            console.log("add Command " + newCommand);
+            break;
+        default:
+            console.log("Group '" + name + "' not found!");
+    }
+
+    guiSubmit();
+}
+
+
+// converts a string from the GUI version to the flight computer version
+// and appends an optional parameter to it
 function convert(toConvert, parameter){
 
-    //NOT COMPLETED
-    var toRet = toConvert + " " + parameter;
+    for (var i=0; i<parsed.length; i++){
+        if (parsed[i][0] == toConvert){
+            compString = parsed[i][1];
+            i= parsed.length +1; // sue me
+        }
+    }
+
+    if (compString == null){
+        console.log("Command '" + toConvert + "' not found!");
+    }
+
+    toRet = compString;
+    //append parameter if needed
+    if (parameter != null){
+        toRet += " " + parameter;
+    }
     return toRet;
 }
+
 
 
 
