@@ -1,0 +1,26 @@
+#############################################################################
+##                       COMMANDS TRANSLATOR FILE                          ##
+## Provides conversions of strings from GUI to strings for flight computer ##
+##                                                                         ##
+## Lines starting with '#' are ignored.                                    ##
+## Strings are parsed until '>>',  with leading/trailing whitespace        ##
+## removed (see: javascript's .trim() function).                           ##
+## LHS is strings as used in GUI. RHS is strings for flight computer.      ##
+## Additional parameters may be required not appended by this file.        ##
+## Change THIS FILE to change the output string of GUI for given commands  ##
+#############################################################################
+
+################################
+##      CONFIG COMMANDS       ##
+################################
+
+### Accelerometer ############################
+
+ACCELEROMETER_RANGE      >>  accrange
+ACCELEROMETER_BANDWIDTH  >>  accbw
+
+
+
+
+
+### EOF #######################################
