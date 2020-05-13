@@ -291,9 +291,16 @@ function addCommands(name){
             //Accelerometer Bandwidth
             var bandRadio = document.getElementsByName("accBandwidth");
             var selectedBand = getRadioVal(bandRadio);
-            newCommand = convert("ACCELEROMETER_BANDWIDTH", selectedRange);
+            newCommand = convert("ACCELEROMETER_BANDWIDTH", selectedBand);
             commands.push(newCommand);
             console.log("add Command " + newCommand);
+            //accelerometer ODR
+            var odrDrop = document.getElementById("accODR");
+            var selectedODR = odrDrop.options[odrDrop.selectedIndex].value;
+            newCommand = convert("ACCELEROMETER_ODR", selectedODR);
+            commands.push(newCommand);
+            console.log("addCommand " + newCommand);
+
             break;
         default:
             console.log("Group '" + name + "' not found!");

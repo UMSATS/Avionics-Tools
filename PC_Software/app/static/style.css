@@ -149,7 +149,14 @@ input[type=submit] { align-self: start; min-width: 10em; }
     display: inline-block;
     vertical-align: top;
     margin: 5px 1%;
-    width: 30%;
+    width: 20%;
+}
+
+.col4 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 1%;
+    width: 10%;
 }
 
 .configButton {
@@ -182,7 +189,7 @@ input[type=submit] { align-self: start; min-width: 10em; }
     background-color: transparent;
     color: var(--main-dark);
     border-radius: 5px;
-    transition-duration: 0.4s;
+    transition: background-color 0.3s, box-shadow 0.1s, transform 0.1s;
     box-shadow: none;
     padding: 16px;
     margin: 0 6px;
@@ -190,8 +197,19 @@ input[type=submit] { align-self: start; min-width: 10em; }
 }
 
 .confirmButton:hover {
+    cursor: pointer;
     background-color: var(--secondary-light);
     color: white;
+}
+
+.confirmButton:focus {
+    outline:none;
+    box-shadow: 0 0 0 1pt var(--main-bckgnd), 0 0 0 2pt cornflowerblue;
+}
+
+.confirmButton:active {
+    box-shadow: 0 0 0 1pt var(--main-bckgnd), 0 0 0 2pt cornflowerblue;
+    transform: translateY(4px)
 }
 
 

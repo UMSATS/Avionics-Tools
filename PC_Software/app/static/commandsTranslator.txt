@@ -18,7 +18,7 @@
 
 ACCELEROMETER_RANGE      >>  accrange
 ACCELEROMETER_BANDWIDTH  >>  accbw
-
+ACCELEROMETER_ODR        >>  accODR
 
 
 
