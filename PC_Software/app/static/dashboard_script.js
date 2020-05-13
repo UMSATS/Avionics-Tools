@@ -4,10 +4,10 @@ document.getElementById("refreshCOM").addEventListener("click",getComPorts);
 document.getElementById("ConnectSerialButton").addEventListener("click",connectFunc);
 document.getElementById("refreshTerminalBtn").addEventListener("click",refreshTerminal);
 
-document.getElementById("submitButton").addEventListener("click", guiSubmit);
+
 
 var comPortGlobal;
-var commands = []; // holds list of strings to pass as commands
+var commands = []; // queue of strings to pass as commands
 var parsed = [];   // holds parsed command tuples from commands tranlsator file
 
 getComPorts();
@@ -331,6 +331,18 @@ function convert(toConvert, parameter){
         toRet += " " + parameter;
     }
     return toRet;
+}
+
+
+
+// send command to flight computer to save changes made 
+// (may or may not be needed for new CLI?)
+function saveChanges(){
+
+    saveCmd = convert("SAVE_CHANGES");
+    commands.push(saveCmd);
+    guiSubmit();
+
 }
 
 
