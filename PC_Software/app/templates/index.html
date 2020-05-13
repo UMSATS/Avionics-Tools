@@ -30,7 +30,7 @@
     <div class="row" id="accelerometerRow">
         <div class="col1">
             <p>Set accelerometer range</p>
-            <input type="radio" name="accRange" value="3">
+            <input type="radio" name="accRange" value="3" checked>
             <label for="accr1">3</label>
             <input type="radio" name="accRange" value="6">
             <label for="accr2">6</label>
@@ -38,17 +38,17 @@
             <label for="accr3">12</label>
             <input type="radio" name="accRange" value="24">
             <label for="accr4">24</label>
-            <button class="configButton" id='setAccRange' onclick="addCommand('accRange')">Set Range</button>
+            <!-- <button class="configButton" id='setAccRange' onclick="addCommand('accRange')">Set Range</button> -->
         </div>
         <div class="col2">
             <p>Set accelerometer bandwidth</p>
-            <input type='radio' name='accBandwidth' id='accbw1'>
+            <input type='radio' name='accBandwidth' value="0">
             <label for='accb1'>0</label>
-            <input type='radio' name='accBandwidth' id='accbw2'>
+            <input type='radio' name='accBandwidth' value="2" checked>
             <label for='accb2'>2</label>
-            <input type='radio' name='accBandwidth' id='accbw3'>
+            <input type='radio' name='accBandwidth' value="4">
             <label for='accb3'>4</label>
-            <button class='configButton' id='setAccBandwidth'>Set Bandwidth</button>
+            <!-- <button class='configButton' id='setAccBandwidth'>Set Bandwidth</button> -->
         </div>
         <div class="col3">
             <p>Set accelerometer ODR</p>
@@ -56,17 +56,20 @@
                 <option value="12">12</option>
                 <option value="25">25</option>
                 <option value="50">50</option>
-                <option value="100">100</option>
+                <option value="100" selected="selected">100</option>
                 <option value="200">200</option>
                 <option value="400">400</option>
                 <option value="800">800</option>
                 <option value="1600">1600</option>
             </select>
         </div>
+        <div class="col4">
+            <button class='confirmButton' id='setAccVals' onclick="addCommands('Accelerometer')">Set These Accelerometer Values</button>
+        </div>
     </div>
 
     <div class="row" style="text-align:right;">
-        <button class='configButton' id='submitButton'>Save Changes</button>
+        <button class='configButton' id='submitButton' onclick="saveChanges()">Save Changes</button>
     </div>
 </div>
 <hr>
