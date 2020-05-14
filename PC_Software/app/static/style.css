@@ -141,6 +141,10 @@ input[type=submit] { align-self: start; min-width: 10em; }
 }
 
 .row {
+    border-style: inset;
+    border-radius: 5px;
+    border-width: thin;
+    box-shadow: inset 1px 1px 12px -9px;
     width:100%;
     margin: 0 auto;
 }
@@ -157,6 +161,13 @@ input[type=submit] { align-self: start; min-width: 10em; }
     vertical-align: top;
     margin: 5px 1%;
     width: 10%;
+}
+
+.col1b, .col2b {
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 1%;
+    width: 30%;
 }
 
 .configButton {
@@ -181,7 +192,7 @@ input[type=submit] { align-self: start; min-width: 10em; }
 }
 
 #submitButton {
-    margin: 2em 5vw 0;
+    margin: 0 0 1em;
 }
 
 

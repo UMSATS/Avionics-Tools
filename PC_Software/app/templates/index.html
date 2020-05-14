@@ -17,19 +17,21 @@
 </div>
 <hr>
 
-
+<!-- Start of GUI for computer CLI -->
 <div class="gui">
     <h2>Flight Computer Commands</h2>
+    <button class='configButton' id='submitButton' onclick="saveChanges()">Save Changes</button>
     <div class="row" id="dataRateRow">
         <h4>Set data rate: 0 to 100 (Hz)</h4>
         <input type='text' class='textInput' id='dataRate' name='dataRate'> 
         <button class='configButton' id='setDataRate'>Set Data Rate</button>
     </div>
 
+<!-- ACCELEROMETER  -->
     <h4 style="text-align:left; margin:2em 5vw 0;">Accelerometer Settings</h4>
     <div class="row" id="accelerometerRow">
         <div class="col1">
-            <p>Set accelerometer range</p>
+            <p>Accelerometer range</p>
             <input type="radio" name="accRange" value="3" checked>
             <label for="accr1">3</label>
             <input type="radio" name="accRange" value="6">
@@ -41,7 +43,7 @@
             <!-- <button class="configButton" id='setAccRange' onclick="addCommand('accRange')">Set Range</button> -->
         </div>
         <div class="col2">
-            <p>Set accelerometer bandwidth</p>
+            <p>Accelerometer bandwidth</p>
             <input type='radio' name='accBandwidth' value="0">
             <label for='accb1'>0</label>
             <input type='radio' name='accBandwidth' value="2" checked>
@@ -51,7 +53,7 @@
             <!-- <button class='configButton' id='setAccBandwidth'>Set Bandwidth</button> -->
         </div>
         <div class="col3">
-            <p>Set accelerometer ODR</p>
+            <p>Accelerometer ODR</p>
             <select id="accODR">
                 <option value="12">12</option>
                 <option value="25">25</option>
@@ -67,13 +69,50 @@
             <button class='confirmButton' id='setAccVals' onclick="addCommands('Accelerometer')">Set These Accelerometer Values</button>
         </div>
     </div>
+    <br>
 
-    <div class="row" style="text-align:right;">
-        <button class='configButton' id='submitButton' onclick="saveChanges()">Save Changes</button>
+<!-- GYRO -->
+    <h4 style="text-align:left; margin:2em 5vw 0;">Gyro Settings</h4>
+    <div class="row" id="gyroRow">
+        <div class="col1b">
+            <p>Gyro Bandwidth and ODR</p>
+            <input type="radio" name="gyroBwODR" value="1" checked>
+            <label for="gyrobo1">32, 100</label>
+            <input type="radio" name="gyroBwODR" value="2">
+            <label for="gyrobo2">64, 200</label>
+            <input type="radio" name="gyroBwODR" value="3">
+            <label for="gyrobo3">12, 100</label>
+            <input type="radio" name="gyroBwODR" value="4">
+            <label for="gyrobo4">23, 200</label>
+            <input type="radio" name="gyroBwODR" value="5">
+            <label for="gyrobo5">47, 400</label>
+            <input type="radio" name="gyroBwODR" value="6">
+            <label for="gyrobo6">116, 1000</label>
+            <input type="radio" name="gyroBwODR" value="7">
+            <label for="gyrobo7">230, 2000</label>
+            <input type="radio" name="gyroBwODR" value="8">
+            <label for="gyrobo8">532, 2000</label>
+        </div>
+        <div class="col2b">
+            <p>Gyro Range</p>
+            <input type="radio" name="gyroRange" value="125" checked>
+            <label for="gyror1">125</label>
+            <input type="radio" name="gyroRange" value="250">
+            <label for="gyror2">250</label>
+            <input type="radio" name="gyroRange" value="500">
+            <label for="gyror3">500</label>
+            <input type="radio" name="gyroRange" value="1000">
+            <label for="gyror4">1000</label>
+            <input type="radio" name="gyroRange" value="2000">
+            <label for="gyror5">2000</label>
+        </div>
+        <div class="col4">
+            <button class='confirmButton' id='setGyroVals' onclick="addCommands('Gyro')">Set These Gyro Values</button>
+        </div>
     </div>
 </div>
 <hr>
-
+<!-- End of GUI for CLI -->
 
     <div class="serialSettings" >
     <h2>Connect To The Flight Computer</h2>

@@ -277,31 +277,48 @@ function getRadioVal(options){
 
 // add commands for given group name from GUI
 function addCommands(name){
+    var radioGroup = null;
+    var dropDown = null;
+    var selected = null;
+    var newCommand = null;
 
     // hard-coded unfortuantely. ensure each block checks all 
     // appropriate settings if making changes
     switch(name){
         case "Accelerometer":
             //accelerometer range
-            var rangeRadio = document.getElementsByName("accRange");
-            var selectedRange = getRadioVal(rangeRadio);
-            newCommand = convert("ACCELEROMETER_RANGE", selectedRange);
+            radioGroup = document.getElementsByName("accRange");
+            selected = getRadioVal(radioGroup);
+            newCommand = convert("ACCELEROMETER_RANGE", selected);
             commands.push(newCommand);
-            console.log("add Command " + newCommand);
-            //Accelerometer Bandwidth
-            var bandRadio = document.getElementsByName("accBandwidth");
-            var selectedBand = getRadioVal(bandRadio);
-            newCommand = convert("ACCELEROMETER_BANDWIDTH", selectedBand);
-            commands.push(newCommand);
-            console.log("add Command " + newCommand);
-            //accelerometer ODR
-            var odrDrop = document.getElementById("accODR");
-            var selectedODR = odrDrop.options[odrDrop.selectedIndex].value;
-            newCommand = convert("ACCELEROMETER_ODR", selectedODR);
-            commands.push(newCommand);
-            console.log("addCommand " + newCommand);
 
+            //Accelerometer Bandwidth
+            radioGroup = document.getElementsByName("accBandwidth");
+            selected = getRadioVal(radioGroup);
+            newCommand = convert("ACCELEROMETER_BANDWIDTH", selected);
+            commands.push(newCommand);
+
+            //accelerometer ODR
+            dropDown = document.getElementById("accODR");
+            selected = dropDown.options[dropDown.selectedIndex].value;
+            newCommand = convert("ACCELEROMETER_ODR", selected);
+            commands.push(newCommand);
             break;
+
+        case "Gyro":
+            //gyro bandwidth and odr
+            radioGroup = document.getElementsByName("gyroBwODR");
+            selected = getRadioVal(radioGroup);
+            newCommand = convert("GYRO_BANDWIDTH_AND_ODR", selected);
+            commands.push(newCommand);
+
+            //gyro range
+            radioGroup = document.getElementsByName("gyroRange");
+            selected = getRadioVal(radioGroup);
+            newCommand = convert("GYRO_RANGE", selected);
+            commands.push(newCommand);
+            break;
+
         default:
             console.log("Group '" + name + "' not found!");
     }
@@ -313,6 +330,8 @@ function addCommands(name){
 // converts a string from the GUI version to the flight computer version
 // and appends an optional parameter to it
 function convert(toConvert, parameter){
+
+    var compString;
 
     for (var i=0; i<parsed.length; i++){
         if (parsed[i][0] == toConvert){
