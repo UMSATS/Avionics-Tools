@@ -4,7 +4,7 @@
 ##                                                                         ##
 ## Lines starting with '#' are ignored.                                    ##
 ## Strings are parsed until '>>',  with leading/trailing whitespace        ##
-## removed (see: javascript's .trim() function).                           ##
+## removed (see: javascript's <String>.trim() function).                   ##
 ## LHS is strings as used in GUI. RHS is strings for flight computer.      ##
 ## Additional parameters may be required not appended by this file.        ##
 ## Change THIS FILE to change the output string of GUI for given commands  ##
@@ -12,27 +12,64 @@
 
 
 
-#################################
-##      GENERAL COMMANDS       ##
-#################################
+### GENERAL COMMANDS ########################################################
 
-SAVE_CHANGES      >>   save
-
-
+HELP          >>  help 
+SAVE_CHANGES  >>  save
+START         >>  start
 
 
 
-################################
-##      CONFIG COMMANDS       ##
-################################
+### CONFIG COMMANDS #########################################################
+   
+CONFIGURE_HELP           >>  configure h
+DATA_RATE                >>  configure a
+RECORD_TO_FLASH          >>  configure b
 
-### Accelerometer ############################
+ACCELEROMETER_RANGE      >>  configure c
+ACCELEROMETER_BANDWIDTH  >>  configure d
+ACCELEROMETER_ODR        >>  configure e
 
-ACCELEROMETER_RANGE      >>  accrange
-ACCELEROMETER_BANDWIDTH  >>  accbw
-ACCELEROMETER_ODR        >>  accODR
+GYRO_BANDWIDTH_AND_ODR   >>  configure f
+GYRO_RANGE               >>  configure g
+
+BMP338_ODR               >>  configure i
+BMP338_IIR_COEFFICIENT   >>  configure l
+
+PRESSURE_OVERSAMPLING    >>  configure j
+TEMPERATURE_OVERSAMPLING >>  configure k
+READ_SETTINGS            >>  configure m
+IN_FLIGHT                >>  configure n
+INTERNAL_WAIT_TIME       >>  configure z
 
 
 
+### E-MATCH COMMANDS ########################################################
 
-### EOF #######################################
+EMATCH_HELP        >>  ematch h
+EMATCH_DELAY       >>  ematch j
+
+DROGUE_CONTINUITY  >>  ematch a
+DROGUE_OVECURRENT  >>  ematch c
+DROGUE_ENABLE      >>  ematch e
+DROGUE_FIRE        >>  ematch g
+
+MAIN_CONTINUITY    >>  ematch b
+MAIN_OVERCURRENT   >>  ematch d
+MAIN_ENABLE        >>  ematch f
+MAIN_FIRE          >>  ematch i
+
+
+
+### MEMORY COMMANDS #########################################################
+
+MEMORY_HELP   >>  mem h
+READ_MEMORY   >>  mem a
+SCAN_MEMORY   >>  mem b
+ERASE_DATA    >>  mem c
+ERASE_CONFIG  >>  mem d
+ERASE_ALL     >>  mem e
+
+
+
+### EOF #####################################################################
