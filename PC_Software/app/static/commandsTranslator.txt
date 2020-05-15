@@ -33,8 +33,8 @@ ACCELEROMETER_ODR        >>  configure e
 GYRO_BANDWIDTH_AND_ODR   >>  configure f
 GYRO_RANGE               >>  configure g
 
-BMP338_ODR               >>  configure i
-BMP338_IIR_COEFFICIENT   >>  configure l
+BMP388_ODR               >>  configure i
+BMP388_IIR_COEFFICIENT   >>  configure l
 
 PRESSURE_OVERSAMPLING    >>  configure j
 TEMPERATURE_OVERSAMPLING >>  configure k

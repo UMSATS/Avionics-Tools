@@ -40,7 +40,6 @@
             <label for="accr3">12</label>
             <input type="radio" name="accRange" value="24">
             <label for="accr4">24</label>
-            <!-- <button class="configButton" id='setAccRange' onclick="addCommand('accRange')">Set Range</button> -->
         </div>
         <div class="col2">
             <p>Accelerometer bandwidth</p>
@@ -50,7 +49,6 @@
             <label for='accb2'>2</label>
             <input type='radio' name='accBandwidth' value="4">
             <label for='accb3'>4</label>
-            <!-- <button class='configButton' id='setAccBandwidth'>Set Bandwidth</button> -->
         </div>
         <div class="col3">
             <p>Accelerometer ODR</p>
@@ -109,6 +107,49 @@
         <div class="col4">
             <button class='confirmButton' id='setGyroVals' onclick="addCommands('Gyro')">Set These Gyro Values</button>
         </div>
+    </div>
+
+    <!-- BMP388 -->
+    <div class="row" id="BMP388Row">
+        <h4 style="text-align:left; margin:2em 5vw 0;">BMP388 Settings</h4>
+        <div class="col1b">
+            <p>BMP388 ODR</p>
+            <input type="radio" name="bmpODR" value="1" checked>
+            <label for="bmpo1">1</label>
+            <input type="radio" name="bmpODR" value="12">
+            <label for="bmpo2">12</label>
+            <input type="radio" name="bmpODR" value="25">
+            <label for="bmpo3">25</label>
+            <input type="radio" name="bmpODR" value="50">
+            <label for="bmpo4">50</label>
+            <input type="radio" name="bmpODR" value="100">
+            <label for="bmpo5">100</label>
+            <input type="radio" name="bmpODR" value="200">
+            <label for="bmpo6">200</label>
+        </div>
+        <div class="col2b">
+            <p>BMP IIR Filter Coefficient</p>
+            <input type="radio" name="bmpIIR" value="0" checked>
+            <label for="mbpf1">0</label>
+            <input type="radio" name="bmpIIR" value="1">
+            <label for="mbpf2">1</label>
+            <input type="radio" name="bmpIIR" value="3">
+            <label for="mbpf3">3</label>
+            <input type="radio" name="bmpIIR" value="7">
+            <label for="mbpf4">7</label>
+            <input type="radio" name="bmpIIR" value="15">
+            <label for="mbpf5">15</label>
+            <input type="radio" name="bmpIIR" value="31">
+            <label for="mbpf6">31</label>
+            <input type="radio" name="bmpIIR" value="63">
+            <label for="mbpf7">63</label>
+            <input type="radio" name="bmpIIR" value="127">
+            <label for="mbpf8">127</label>
+        </div>
+        <div class="col4">
+            <button class='confirmButton' id='setBMPvals' onclick="addCommands('BMP388')">Set These BMP388 Values</button>
+        </div>
+
     </div>
 </div>
 <hr>

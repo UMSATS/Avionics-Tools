@@ -319,6 +319,19 @@ function addCommands(name){
             commands.push(newCommand);
             break;
 
+        case "BMP388":
+            //BMP ODR
+            radioGroup = document.getElementsByName("bmpODR");
+            selected = getRadioVal(radioGroup);
+            newCommand = convert("BMP388_ODR", selected);
+            commands.push(newCommand);
+
+            //BMP IIR Coefficient
+            radioGroup = document.getElementsByName("bmpIIR");
+            selected = getRadioVal(radioGroup);
+            newCommand = convert("BMP388_IIR_COEFFICIENT", selected);
+            commands.push(newCommand);
+            break;
         default:
             console.log("Group '" + name + "' not found!");
     }
